@@ -1,7 +1,7 @@
 package core
 
 type Client struct {
-	id        int
+	Id        int
 	FirstName string
 	LastName  string
 	Address   string

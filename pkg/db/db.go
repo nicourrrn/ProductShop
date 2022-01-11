@@ -7,9 +7,7 @@ import (
 	"time"
 )
 
-type Connector struct {
-	connection *sqlx.DB
-}
+type Connector sqlx.DB
 
 func NewConnector(name, password, host string) (*Connector, error) {
 	source := fmt.Sprintf("%s:%s@%s", name, password, host)
@@ -26,9 +24,5 @@ func NewConnector(name, password, host string) (*Connector, error) {
 	db.SetConnMaxLifetime(10 * time.Second)
 	db.SetMaxIdleConns(10)
 	db.SetConnMaxIdleTime(10 * time.Second)
-	return &Connector{connection: db}, nil
-}
-
-func (c Connector) Close() {
-	c.connection.Close()
+	return (*Connector)(db), nil
 }

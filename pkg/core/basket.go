@@ -1,9 +1,9 @@
 package core
 
 type Basket struct {
-	id int
-	Address string
+	Id          int
+	Address     string
 	Paid, Close bool
-	Total int
-	Products interface{}
+	Total       int
+	Products    interface{}
 }
