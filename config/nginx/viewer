@@ -1,0 +1,14 @@
+    server {
+        listen 9909;
+        root /usr/share/nginx;
+        location /img/{
+            root img;
+            index index.html;
+        }
+
+        location /market/ {
+            root market;
+            index index.html;
+        }
+    }
+
